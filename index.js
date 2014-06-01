@@ -54,6 +54,14 @@ function scrapeGabileyNet(){
   scrapeSite(siteName, url, selector, {host: "gabiley.net"});
 }
 
+function scrapeBurcoOnline(){
+  var siteName = "Burco Online";
+  var url = "http://burcoonline.com/category/1/Wararka";
+  var selector = ".left-column .content-holder h1 a";
+
+  scrapeSite(siteName, url, selector, {host: "burcoonline.com"});
+}
+
 function scrapeSite(siteName, url, selector, options){
   var start = Date.now();
 
@@ -113,12 +121,12 @@ setTimeout(scrapeSomalilandOrg, 0);
 setTimeout(scrapeCaynabaNews, 0);
 setTimeout(scrapeSomalilandToday, 0);
 setTimeout(scrapeGabileyNet, 0);
+setTimeout(scrapeBurcoOnline, 0);
 
-/*
 setInterval(scrapeHadhwanaag, 60000);
 setInterval(scrapeBoramaNews, 90000);
 setInterval(scrapeSomalilandOrg, 60000);
 setInterval(scrapeCaynabaNews, 60000);
 setInterval(scrapeSomalilandToday, 60000);
 setInterval(scrapeGabileyNet, 60000);
-*/
+setInterval(scrapeBurcoOnline, 60000);
