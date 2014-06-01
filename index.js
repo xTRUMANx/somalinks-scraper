@@ -62,6 +62,14 @@ function scrapeBurcoOnline(){
   scrapeSite(siteName, url, selector, {host: "burcoonline.com"});
 }
 
+function scrapeGobanimoNews(){
+  var siteName = "Gobanimo News";
+  var url = "http://www.gobanimonews.com/warar/";
+  var selector = "#homepost h2 a";
+
+  scrapeSite(siteName, url, selector, {host: "www.gobanimonews.com"});
+}
+
 function scrapeSite(siteName, url, selector, options){
   var start = Date.now();
 
@@ -122,6 +130,7 @@ setTimeout(scrapeCaynabaNews, 0);
 setTimeout(scrapeSomalilandToday, 0);
 setTimeout(scrapeGabileyNet, 0);
 setTimeout(scrapeBurcoOnline, 0);
+setTimeout(scrapeGobanimoNews, 0);
 
 setInterval(scrapeHadhwanaag, 60000);
 setInterval(scrapeBoramaNews, 90000);
@@ -130,3 +139,4 @@ setInterval(scrapeCaynabaNews, 60000);
 setInterval(scrapeSomalilandToday, 60000);
 setInterval(scrapeGabileyNet, 60000);
 setInterval(scrapeBurcoOnline, 60000);
+setInterval(scrapeGobanimoNews, 60000);
