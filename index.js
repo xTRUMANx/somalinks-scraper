@@ -13,7 +13,7 @@ function scrapeHadhwanaag(){
 }
 
 function scrapeBoramaNews(){
-  var siteName = "BoramaNews";
+  var siteName = "Borama News";
   var url = "http://boramanews.com/index.php?option=com_content&view=section&layout=blog&id=5&Itemid=53";
   var selector = ".blog_more ul li a";
   var urlPrefix = "http://boramanews.com";
@@ -22,7 +22,7 @@ function scrapeBoramaNews(){
 }
 
 function scrapeSomalilandOrg(){
-  var siteName = "Somaliland.Org";
+  var siteName = "Somaliland.org";
   var url = "http://www.somaliland.org/";
   var selector = "#content article.post h1.entry-title a";
 
@@ -30,7 +30,7 @@ function scrapeSomalilandOrg(){
 }
 
 function scrapeCaynabaNews(){
-  var siteName = "CaynabaNews";
+  var siteName = "Caynaba News";
   var url = "http://www.caynabanews.com/caynaba.php?catid=Wararka&type=Content&list=Yes";
   var selector = "table td[height=100] a";
   var urlPrefix = "http://www.caynabanews.com/";
@@ -39,7 +39,7 @@ function scrapeCaynabaNews(){
 }
 
 function scrapeSomalilandToday(){
-  var siteName = "SomalilandToday";
+  var siteName = "Somaliland Today";
   var url = "http://somalilandtoday.com/category/news/";
   var selector = "#content .post h2 a";
 
@@ -47,7 +47,7 @@ function scrapeSomalilandToday(){
 }
 
 function scrapeGabileyNet(){
-  var siteName = "Gabiley.Net";
+  var siteName = "Gabiley News";
   var url = "http://gabiley.net/category/news/";
   var selector = "#gk-mainbody .post h2 a";
 
@@ -68,6 +68,14 @@ function scrapeGobanimoNews(){
   var selector = "#homepost h2 a";
 
   scrapeSite(siteName, url, selector, {host: "www.gobanimonews.com"});
+}
+
+function scrapeHargeisaNews(){
+  var siteName = "Hargeisa News";
+  var url = "http://www.hargeisanews.net/?cat=1";
+  var selector = ".catNews li a";
+
+  scrapeSite(siteName, url, selector, {host: "www.hargeisanews.net"});
 }
 
 function scrapeSite(siteName, url, selector, options){
@@ -98,7 +106,8 @@ function scrapeSite(siteName, url, selector, options){
       var post = {
         title: $(this).text().trim(),
         url: postUrl,
-        host: options.host
+        host: options.host,
+        siteName: siteName
       };
 
       if(post.title || !post.host) {
@@ -131,6 +140,7 @@ setTimeout(scrapeSomalilandToday, 0);
 setTimeout(scrapeGabileyNet, 0);
 setTimeout(scrapeBurcoOnline, 0);
 setTimeout(scrapeGobanimoNews, 0);
+setTimeout(scrapeHargeisaNews, 0);
 
 setInterval(scrapeHadhwanaag, 60000);
 setInterval(scrapeBoramaNews, 90000);
@@ -140,3 +150,4 @@ setInterval(scrapeSomalilandToday, 60000);
 setInterval(scrapeGabileyNet, 60000);
 setInterval(scrapeBurcoOnline, 60000);
 setInterval(scrapeGobanimoNews, 60000);
+setInterval(scrapeHargeisaNews, 60000);
